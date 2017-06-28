@@ -111,7 +111,7 @@ public class Chapter1ReinforcementQuestions {
 	}
 	
 	// Question 10
-	private class Flower{
+	static class Flower{
 		String name;
 		int noOfPetals;
 		float price;
@@ -145,6 +145,10 @@ public class Chapter1ReinforcementQuestions {
 		public void setPrice(float price){
 			this.price = price;
 		}
+		
+		public String toString(){
+			return "name: " + name + ", " + "no of petals: " + noOfPetals + ", " + price;
+		}
 	}
 
 	// Question 11
@@ -177,6 +181,14 @@ public class Chapter1ReinforcementQuestions {
 		// System.out.println(removePunctuation("This isn't a lot of 2 punctuations."));
 		
 		// Question 10
+		Flower flower = new Flower("Rose", 15, 1.56F);
+		System.out.println(flower);
+		flower.setName("tulip");
+		flower.setNoOfPetals(5);
+		flower.setPrice(2.35F);
+		System.out.println(flower);
+		
+		
 		
 	}
 }
