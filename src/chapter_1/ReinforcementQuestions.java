@@ -2,7 +2,7 @@ package chapter_1;
 
 import java.util.Scanner;
 
-public class Chapter1ReinforcementQuestions {
+public class ReinforcementQuestions {
 
 	// Questions 1
 	public static void inputAllBaseTypes(){
@@ -152,6 +152,15 @@ public class Chapter1ReinforcementQuestions {
 	}
 
 	// Question 11
+	// added to CreditCard class
+
+	
+	// Question 12
+	// added to CreditCard class
+
+	// Question 12
+	// added to CreditCard class
+	// First account is the one that goes above limit
 	
 	
 	public static void main (String[] args){
@@ -181,13 +190,21 @@ public class Chapter1ReinforcementQuestions {
 		// System.out.println(removePunctuation("This isn't a lot of 2 punctuations."));
 		
 		// Question 10
-		Flower flower = new Flower("Rose", 15, 1.56F);
-		System.out.println(flower);
-		flower.setName("tulip");
-		flower.setNoOfPetals(5);
-		flower.setPrice(2.35F);
-		System.out.println(flower);
+//		Flower flower = new Flower("Rose", 15, 1.56F);
+//		System.out.println(flower);
+//		flower.setName("tulip");
+//		flower.setNoOfPetals(5);
+//		flower.setPrice(2.35F);
+//		System.out.println(flower);
 		
+		// Question 11
+		// to be inserted in Credit Card class
+		
+		// Question 12
+		// to be inserted in Credit Card class
+		
+		// Question 13
+		// to be inserted in Credit Card class
 		
 		
 	}
