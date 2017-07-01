@@ -1,18 +1,18 @@
 package chapter_2;
 
-public class ArithmaticProgression extends Progression{
+public class ArithmeticProgression extends Progression{
 	
 	protected long increment;
 	
-	public ArithmaticProgression(){
+	public ArithmeticProgression(){
 		this(1,0);
 	}
 	
-	public ArithmaticProgression(long stepSize){
+	public ArithmeticProgression(long stepSize){
 		this(stepSize, 0);
 	}
 	
-	public ArithmaticProgression(long stepSize, long start){
+	public ArithmeticProgression(long stepSize, long start){
 		super(start);
 		increment = stepSize;
 	}

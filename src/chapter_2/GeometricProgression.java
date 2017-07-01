@@ -5,7 +5,7 @@ public class GeometricProgression extends Progression{
 	protected long base;
 	
 	public GeometricProgression(){
-		this(1,2);
+		this(2,1);
 	}
 	
 	public GeometricProgression(long base){
