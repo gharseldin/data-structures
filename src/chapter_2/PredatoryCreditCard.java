@@ -11,17 +11,27 @@ public class PredatoryCreditCard extends CreditCard{
 		apr = rate;
 	}
 	
-	public void processMonth(){
-		if(balance > 0){
-			double monthlyFactor = Math.pow(1 + apr, 1.0/12);
-			balance *= monthlyFactor;
-		}
-	}
+//	public void processMonth(){
+//		if(balance > 0){
+//			double monthlyFactor = Math.pow(1 + apr, 1.0/12);
+//			balance *= monthlyFactor;
+//		}
+//	}
 	
 	public boolean charge(double price){
 		boolean isSuccess = super.charge(price);
-		if(isSuccess)
-			balance += 5;
+		if(!isSuccess)
+			super.charge(5);
 		return isSuccess;
+	}
+	
+	public static void main(String args[]){
+		PredatoryCreditCard card = new PredatoryCreditCard("Amr", "ABC bank","123",
+				300, 200, 9.5);
+		System.out.println(card);
+		card.charge(50);
+		System.out.println(card);
+		card.charge(60);
+		System.out.println(card);
 	}
 }

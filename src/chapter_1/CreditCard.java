@@ -5,7 +5,7 @@ public class CreditCard {
 	private String bank;
 	private String account;
 	private int limit;
-	protected double balance;
+	private double balance;
 	
 	// constructors
 	public CreditCard(String cust, String bk, String acnt, int lim, double initialBal){
@@ -37,7 +37,9 @@ public class CreditCard {
 		balance += price;
 		return true;
 	}
-	public void makePayment(double amount){
+	public void makePayment(double amount) throws IllegalArgumentException{
+		if(amount < 0)
+			throw  new IllegalArgumentException();
 		balance -=amount;
 	}
 	
