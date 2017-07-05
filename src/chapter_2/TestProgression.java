@@ -1,5 +1,7 @@
 package chapter_2;
 
+import java.math.BigInteger;
+
 public class TestProgression {
 	
 	public static void main(String args[]){
@@ -25,7 +27,7 @@ public class TestProgression {
 		prog = new FibonacciProgression();
 		prog.printProgression(10);
 		System.out.println("Fibonacci progression with start values 4 and 6: ");
-		prog = new FibonacciProgression(4, 6);
+		prog = new FibonacciProgression(BigInteger.valueOf(4),BigInteger.valueOf(6));
 		prog.printProgression(8);		
 	}
 }

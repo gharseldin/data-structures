@@ -1,26 +1,24 @@
 package chapter_2;
 
-public class Progression {
+public abstract class Progression <T extends Number> {
 	
-	protected long current;
+	protected T current;
 	
 	public Progression(){
-		this(0);
+		this((T) new Long(0));
 	}
 	
-	public Progression(long start){
+	public Progression(T start){
 		current = start;
 	}
 	
-	public long nextValue(){
-		long answer = current;
+	public T nextValue(){
+		T answer = current;
 		advance();
 		return answer;
 	}
 	
-	protected void advance(){
-		current++;
-	}
+	protected abstract void advance();
 	
 	public void printProgression(int n){
 		System.out.print(nextValue());

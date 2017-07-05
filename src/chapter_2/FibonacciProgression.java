@@ -1,21 +1,24 @@
 package chapter_2;
 
-public class FibonacciProgression extends Progression{
+import java.math.BigInteger;
 
-	protected long prev;
+public class FibonacciProgression extends Progression<BigInteger>{
+
+	protected BigInteger prev;
 	
 	public FibonacciProgression(){
-		this(0,1);
+		this(BigInteger.ZERO, BigInteger.ONE);
 	}
 	
-	public FibonacciProgression(long first, long second){
+	public FibonacciProgression(BigInteger first, BigInteger second){
 		super(first);
-		prev = second - first;
+		prev = second.add(first.negate());
 	}
 	
 	protected void advance(){
-		long temp = prev;
-		prev = current;
-		current += temp;
+		
+		current = current.add(prev);
+		prev = current.add(prev.negate());
+	
 	}
 }

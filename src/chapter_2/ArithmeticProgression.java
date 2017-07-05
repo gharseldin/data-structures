@@ -1,6 +1,6 @@
 package chapter_2;
 
-public class ArithmeticProgression extends Progression{
+public class ArithmeticProgression extends Progression<Long>{
 	
 	protected long increment;
 	

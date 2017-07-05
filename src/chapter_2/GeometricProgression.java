@@ -18,6 +18,6 @@ public class GeometricProgression extends Progression{
 	}
 	
 	protected void advance(){
-		current *= base;
+		current = base;
 	}
 }

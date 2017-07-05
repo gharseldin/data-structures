@@ -26,6 +26,9 @@ public class CreditCard {
 	public String getAccount(){return account;}
 	public int getLimit(){return limit;}
 	public double getBalance(){return balance;}
+	protected void setBalance(Double newBalance){
+		balance = newBalance;
+	}
 	
 	// Update methods
 	// adjusted for question 12

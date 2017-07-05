@@ -1,5 +1,7 @@
 package chapter_2;
 
+import java.math.BigInteger;
+
 public class ReinforcementQuestions {
 	
 	
@@ -35,9 +37,9 @@ public class ReinforcementQuestions {
 	 */
 	
 	// Question 6
-	public static long eighthFibonacciValue(){
-		FibonacciProgression prog = new FibonacciProgression(2, 2);
-		long result = 0;
+	public static BigInteger eighthFibonacciValue(){
+		FibonacciProgression prog = new FibonacciProgression(BigInteger.valueOf(2), BigInteger.valueOf(2));
+		BigInteger result = BigInteger.ZERO;
 		for(int i=0; i<8; i++){
 			result = prog.nextValue();
 			System.out.println(result);
@@ -100,7 +102,7 @@ public class ReinforcementQuestions {
 	public static void main(String args[]){
 		
 		// Question 6
-		// eighthFibonacciValue();
+		eighthFibonacciValue();
 		
 		// Question 7
 		// checkLongOverflow();
