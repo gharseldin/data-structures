@@ -78,6 +78,5 @@ public class TicTacToe {
 		String[] outcome = {"O wins", "Tie", "X wins"};
 		System.out.println(outcome[1+ winningPlayer]);
 		
-		
 	}
 }
