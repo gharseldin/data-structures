@@ -32,6 +32,33 @@ public class ReinforcementQuestions {
 			}
 		}
 	}
+	
+	// Question 3
+	/**
+	 * We will have to change the number of characters (26 in case of English)
+	 * Make sure if we need the isUpper() method. Not needed in some languages 
+	 */
+	
+	// Question 4
+	// Done in TicTacToe class
+	
+	// Question 5
+	// Nothing would happen. We are just freeing resources by setting the tail to null
+	
+	// Question 6
+	/**
+	 * if isEmpty or seize equal to 1 return null
+	 * Node beforeLast = head;
+	 * while( beforeLast.next.next != null)
+	 * 	beforeLast = beforeLast.next
+	 * 
+	 * return beforeLast
+	 */
+	
+	// Question 7
+	// Done in CircularlyLinkedList class
+	
+	
 	private static <T> boolean arrayHasValues(T[] data){
 		for (int i=0; i< data.length; i++){
 			if(data[i]!=null)
@@ -48,5 +75,10 @@ public class ReinforcementQuestions {
 		// Quesiton 2
 		// Integer[] input = {1, 2, 3, 4, 5, 6, 7, 8, 9};
 		// randomSelectAndRemove(input);
+		
+		// Question 3
+		// explained
+	
+		
 	}
 }

@@ -5,7 +5,8 @@ public class TicTacToe {
 	public static final int EMPTY = 0;
 	private int board[][] = new int[3][3];
 	private int player;
-	
+	private int moves;
+	private boolean gameEnded; 
 	public TicTacToe(){
 		clearBoard();
 	}
@@ -15,26 +16,39 @@ public class TicTacToe {
 			for (int j = 0; i<3; i++)
 				board[i][j] = EMPTY;
 		player = X;
+		moves = 0;
+		gameEnded = false;
 	}
 	
-	public void putMark(int i, int j) throws IllegalArgumentException{
+	public void putMark(int i, int j) throws IllegalArgumentException, IllegalStateException{
+		if(gameEnded || moves == 9){
+			gameEnded = true;
+			throw new IllegalStateException("The game has ended");
+		}
 		if(i<0 || i>2 || j<0 ||j>2)
 			throw new IllegalArgumentException("Invalid board position");
 		if(board[i][j]!= EMPTY)
 			throw new IllegalArgumentException("Board position occupied");
 		board[i][j] = player;
 		player = -player;
+		moves++;
+		
 	}
 	
 	public boolean isWin(int mark){
-		return ((board[0][0] + board[0][1] + board[0][2] == mark*3)
+		if ((board[0][0] + board[0][1] + board[0][2] == mark*3)
 				|| (board[1][0] + board[1][1] + board[1][2] == mark*3) 
 				|| (board[2][0] + board[2][1] + board[2][2] == mark*3) 
 				|| (board[0][0] + board[1][0] + board[2][0] == mark*3) 
 				|| (board[0][1] + board[1][1] + board[2][1] == mark*3) 
 				|| (board[0][2] + board[1][2] + board[2][2] == mark*3) 
 				|| (board[0][0] + board[1][1] + board[2][2] == mark*3) 
-				|| (board[2][0] + board[1][1] + board[0][2] == mark*3));
+				|| (board[2][0] + board[1][1] + board[0][2] == mark*3)){
+			gameEnded = true;
+			moves = 0;
+			return true;
+		}
+		return false;
 	}
 	
 	public int winner(){
@@ -71,7 +85,9 @@ public class TicTacToe {
 		game.putMark(0,1);
 		game.putMark(2,1);
 		game.putMark(2,0);
-		
+		game.putMark(1,0);
+		game.putMark(1,2);		
+//		game.putMark(1,2);		throws an IllegalStateException
 		System.out.println(game);
 		
 		int winningPlayer = game.winner();
