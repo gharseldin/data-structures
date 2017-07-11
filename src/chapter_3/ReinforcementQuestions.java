@@ -59,6 +59,8 @@ public class ReinforcementQuestions {
 	// Done in CircularlyLinkedList class
 	
 	
+	// Question 8
+	
 	private static <T> boolean arrayHasValues(T[] data){
 		for (int i=0; i< data.length; i++){
 			if(data[i]!=null)
