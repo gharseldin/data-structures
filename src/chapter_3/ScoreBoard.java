@@ -34,6 +34,19 @@ public class ScoreBoard {
 		return temp;
 	}
 	
+	// Question 19
+//	public void addWithoutSorting(GameEntry entry){
+//		if(numEntries < board.length) {
+//			board[numEntries] = entry;
+//			numEntries++;
+//		}
+//		// else undefined case! 
+//	}
+//	// not clear in the requirements!
+//	public GameEntry removeWithoutSorting(int i){
+//		
+//	}
+
 	public String toString(){
 		String output = "";
 		for(GameEntry entry : board){
