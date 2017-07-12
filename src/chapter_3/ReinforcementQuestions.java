@@ -60,7 +60,56 @@ public class ReinforcementQuestions {
 	
 	
 	// Question 8
+	/**
+	 * 
+	 * Node middleSeeker = head
+	 * Node endSeeker = head
+	 * 
+	 * if(size = 0) return null
+	 * if(size = 1) return head
+	 * if(size = 2) return head
+	 * 
+	 * while (endSeeker.next != null || endSeeker.next.next != null)
+	 * 		middleSeeker = middleSeeker.next
+	 * 		endSeeker = endSeeker.next.next
+	 * 
+	 * return middleSeeker
+	 * 
+	 * 
+	 */
 	
+	// Question 9
+	// Done in SinglyLinkedList class
+	
+	// Question 10
+	// Done in CircularlyLinkedList class
+	
+	// Question 11
+	// Done in DoublyLinkedList class
+	
+	// Question 12
+	// Done in SinglyLinkedList class
+	
+	// Question 13
+	/**
+	 * There is no difference in a shallow equality test and a deep equality test
+	 * between two one dimensional int arrays
+	 * 
+	 * There is still no difference because arrays are not true class types and
+	 * if two arrays are of the same size and have the same equivalent value of 
+	 * primitives in their indices then both will be equal 
+	 */
+	
+	// Question 14
+	// int[] backup = original.clone();
+	// Arrays.copyOf(original, original.length)
+	// Arrays.copyOfRange(original, 0, original.length)
+	
+	// Question 15
+	// Done in CircularlyLinkedList class
+	
+	// Question 16
+	// Done in DoublyLinkedList class
 	private static <T> boolean arrayHasValues(T[] data){
 		for (int i=0; i< data.length; i++){
 			if(data[i]!=null)

@@ -43,6 +43,19 @@ public class DoublyLinkedList<E> {
 	
 	public int size(){return size;}
 	public boolean isEmpty(){ return size == 0;}
+	
+	// Question 11
+	public int getSize(){
+		if(header.getNext() == trailer) return 0;
+		int size = 1;
+		Node<E> endSeeker = header.getNext();
+		while(endSeeker.getNext() != trailer){
+			endSeeker = endSeeker.getNext();
+			size++;
+		}
+		return size;
+	}
+	
 	public E first(){
 		if(isEmpty())return null;
 		return header.getNext().getElement();
@@ -80,5 +93,25 @@ public class DoublyLinkedList<E> {
 		successor.setPrev(predecessor);
 		size--;
 		return node.getElement();
+	}
+	
+	// Question 16
+	
+	public boolean equals(Object o){
+		if(o == null)return false;
+		if(o.getClass() != this.getClass())return false;
+		DoublyLinkedList other = (DoublyLinkedList)o;
+		if(other.size() == 0 && this.size() == 0)return true;
+		Node thisTracker = header;
+		Node otherTracker = other.header;
+		while(thisTracker.getNext() != this.trailer){
+			if(thisTracker.getNext() == otherTracker.getNext()){
+				thisTracker = thisTracker.getNext();
+				otherTracker = otherTracker.getNext();
+			}else{
+				return false;
+			}
+		}
+		return true;
 	}
 }

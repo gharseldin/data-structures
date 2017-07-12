@@ -45,6 +45,28 @@ public class SinglyLinkedList <E> implements Cloneable{
 		return tail.getElement();
 	}
 	
+	// Question 9
+	public int getSize(){
+		if(head == null) return 0;
+		int size = 1;
+		Node<E> endSeeker = head;
+		while(endSeeker.getNext() != null){
+			endSeeker = endSeeker.getNext();
+			size++;
+		}
+		return size;
+	}
+	
+	// Question 12
+	// Adds the first element to the end of the linked list
+	public void rotate(){
+		if (head == null || head.getNext() == null) return;
+		tail.setNext(head);
+		tail = tail.getNext();
+		head = head.getNext();
+		tail.setNext(null);
+	}
+	
 	public void addFirst(E e){
 		head = new Node<>(e, head);
 		if(isEmpty())
