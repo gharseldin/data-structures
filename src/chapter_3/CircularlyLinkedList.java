@@ -30,6 +30,19 @@ public class CircularlyLinkedList<E>{
 		
 		public int size(){ return size;}
 		public boolean isEmpty(){ return size == 0;}
+		
+		// Question 10
+		public int getSize(){
+			if(tail == null) return 0;
+			int size = 1;
+			Node<E> endSeeker = tail;
+			while(endSeeker.getNext() != tail){
+				endSeeker = endSeeker.getNext();
+				size++;
+			}
+			return size;
+		}
+		
 		public E first(){
 			if(isEmpty()) return null;
 			return tail.getNext().getElement();
@@ -62,6 +75,26 @@ public class CircularlyLinkedList<E>{
 				tail.setNext(startValue.getNext());
 			size--;
 			return  startValue.getElement();
+		}
+		
+		// Question 15
+		
+		public boolean equals(Object o){
+			if(o == null)return false;
+			if(o.getClass() != this.getClass())return false;
+			CircularlyLinkedList other = (CircularlyLinkedList)o;
+			if(other.tail != tail)return false;
+			if(tail == null || tail.getNext() == tail)return true;
+			Node thisTracker = tail;
+			Node otherTracker = other.tail;
+			while(thisTracker.getNext() != tail)
+				if(thisTracker.getNext().equals(otherTracker.getNext())){
+					thisTracker = thisTracker.getNext();
+					otherTracker = otherTracker.getNext();
+				}
+				else return false;
+			return true;
+				
 		}
 		
 }
