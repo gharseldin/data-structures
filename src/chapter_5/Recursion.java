@@ -1,5 +1,7 @@
 package chapter_5;
 
+import java.io.File;
+
 public class Recursion {
 
 	public static int factorial(int n) throws IllegalArgumentException{
@@ -55,6 +57,59 @@ public class Recursion {
 			else
 				return binarySearch(data, target, mid+1, high);
 		}
+	}
+	
+	// Calculating the total disk usage in bytes of a portion of 
+	// the file system rooted at a given path
+	public static long diskUsage(File root){
+		long total = root.length();
+		if(root.isDirectory()){
+			for(String childname : root.list()){
+				File child = new File(root, childname);
+				total += diskUsage(child);
+			}
+		}
+		System.out.println(total + "\t" + root);
+		return total;
+	}
+	
+	public static int linearSum(int[] data, int n){
+		if(n == 0)
+			return 0;
+		return data[n-1] + linearSum(data, n-1);
+	}
+	
+	
+	public static void reverseArray(int[] data, int low, int high){
+		if(low<high){
+			int temp = data[low];
+			data[low] = data[high];
+			data[high] = temp;
+			reverseArray(data, low+1, high-1);
+		}
+	}
+	
+	public static double power(double x, int n){
+		if( n==0 ) return 1;
+		return x*power(x, n-1);
+	}
+	
+	public static double power2(double x, int n){
+		if( n== 0 )return 1;
+		else{
+			double partial = power2(x, n/2);
+			double result = partial * partial;
+			if( n%2 == 1)
+				result *= x;
+			return result;
+		}
+	}
+	
+	public static int binarySum(int[] data, int low, int high){
+		if(low>high) return 0;
+		if(low == high) return data[low];
+		int mid = (low + high)/2;
+		return binarySum(data, low, mid) + binarySum(data, mid+1, high);
 	}
 	
 	public static void main(String[] args){
