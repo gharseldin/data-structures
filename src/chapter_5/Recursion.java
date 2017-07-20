@@ -112,6 +112,63 @@ public class Recursion {
 		return binarySum(data, low, mid) + binarySum(data, mid+1, high);
 	}
 	
+	// A not very efficient way of implementing the uniqueness problem
+	// returns true if there are no duplicate values from data[low] through data[high]
+	// O(2^n) !!
+	public static boolean unique3(int[] data, int low, int high){
+		if(low >= high) return true;
+		if(!unique3(data, low, high-1)) return false;
+		if(!unique3(data, low+1, high)) return false;
+		else return (data[low] != data[high]);
+	}
+	
+	// A not very efficient way of implementing a Fibonacci recursive method
+	// exponential time O (2^n/2) !!
+	public static long fibonacciBad(int n){
+		if(n <= 1)
+			return n;
+		return fibonacciBad(n-2) + fibonacciBad(n-1);
+	}
+	
+	// A better way to compute a Fibonnacci number
+	// runs in O(n) time
+	public static long[] fibonacciGood(int n){
+		if(n<=1){
+			long[] answer = {n,0};
+			return answer;
+		} else{
+			long[] temp = fibonacciGood(n-1);
+			long[] answer = {temp[0] + temp[1], temp[0]};
+			return answer;
+		}
+	}
+	
+	// Converting a trail recursion into an iterative one.
+	public static boolean binarySearchIterative(int[] data, int target){
+		int low = 0;
+		int high = data.length-1;
+		while(low <= high){
+			int mid = (low + high)/2;
+			if(target == data[mid])
+				return true;
+			else if (target < data[mid])
+				high = mid-1;
+			else
+				low = mid+1;
+		}
+		return false;
+	}
+	
+	// non recursive method to reverse the contents of an array
+	public static void reverseIterative(int[] data){
+		int low = 0, high = data.length - 1;
+		while(low < high){
+			int temp = data[low];
+			data[low++] = data[high];
+			data[high--] = temp;
+		}
+	}
+	
 	public static void main(String[] args){
 		drawRuler(3, 4);
 	}
