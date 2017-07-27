@@ -73,11 +73,10 @@ public class CreativityQuestions {
 				populatedIndices++;
 			}
 		}
-		
 		return shuffledA;
-
-		
 	}
+	
+	
 	
 	public static void main(String[] args){
 	
