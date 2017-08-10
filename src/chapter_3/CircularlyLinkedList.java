@@ -34,7 +34,7 @@ public class CircularlyLinkedList<E>{
 		// Question 10
 		public int getSize(){
 			if(tail == null) return 0;
-			int size = 1;
+			int size = 0;
 			Node<E> endSeeker = tail;
 			while(endSeeker.getNext() != tail){
 				endSeeker = endSeeker.getNext();
