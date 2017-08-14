@@ -1,6 +1,51 @@
 package chapter_7;
 
+import java.util.NoSuchElementException;
+
 public class ArrayList<E> implements List<E> {
+	
+	//-------------------- nested ArrayIterator class ---------------
+	/**
+	 * a non-static inner class. each instance contains an implicit
+	 * reference to the containing list, allowing it to access the list's
+	 * members
+	 */
+	private class ArrayIterator implements Iterator<E>{
+		
+		private int j = 0;	//index of the next element to report
+		private boolean removable = false;	// can remove be called at this time?
+		
+		/**
+		 * Test whether the iterator has a next object
+		 */
+		public boolean hasNext(){ return j<size;}
+		
+		/**
+		 * returns the next object in the iterator
+		 */
+		public E next() throws NoSuchElementException{
+			if(j ==size) throw new NoSuchElementException("No next element");
+			removable =true;
+			return data[j++];
+		}
+		
+		/**
+		 * Removes the element returned by most recent call to next
+		 */
+		public void remove() throws IllegalStateException {
+			if(!removable) throw new IllegalStateException("nothing to remove");
+			ArrayList.this.remove(j-1);
+			j--;
+			removable = false;
+		}
+	}	//--------------- end of nested ArrayIterator class --------------
+	
+	/**
+	 * Returns an iterator of the elements stored in the list
+	 */
+	public Iterator<E> iterator(){
+		return new ArrayIterator();
+	}
 	
 	//instance variables
 	public static final int CAPACITY=16;
