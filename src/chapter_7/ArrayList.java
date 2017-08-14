@@ -1,5 +1,6 @@
 package chapter_7;
 
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class ArrayList<E> implements List<E> {

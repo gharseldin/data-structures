@@ -1,6 +1,65 @@
 package chapter_7;
 
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
 public class LinkedPositionalList<E> implements PositionalList<E> {
+	
+	//----------------- nested PositionIterator class -----------
+	private class PositionIterator implements Iterator<Position<E>> {
+		private Position<E> cursor = first();	// position of the next element to report
+		private Position<E> recent = null;		// position of last reported element
+		/**
+		 * tests whether the iterator has a next object
+		 */
+		public boolean hasNext() {return (cursor !=null);}
+		
+		/**
+		 * Returns the next position in the iterator
+		 */
+		public Position<E> next() throws NoSuchElementException{
+			if(cursor == null) throw new NoSuchElementException("nothing left");
+			recent = cursor;
+			cursor = after(cursor);
+			return recent;
+		}
+		
+		/**
+		 * Removes the element returned by most recent call to next
+		 */
+		public void remove() throws IllegalStateException{
+			if(recent == null) throw new IllegalStateException("nothing to remove");
+			LinkedPositionalList.this.remove(recent);
+			recent = null;
+		}
+	}	//-------------- end of nested PositionIterator class ---------
+	
+	//----------------- nested PositionIterable class -----------
+	private class PositionIterable implements Iterable<Position<E>>{
+		public Iterator<Position<E>> iterator() { return new PositionIterator();}
+	}
+	
+	/**
+	 * Returns an iterable representation of the list's positions
+	 */
+	public Iterable<Position<E>> positinos(){
+		return new PositionIterable();
+	}
+	//----------------- nested ElementIterator class -----------
+	/**
+	 * This class adapts the iteration produced by positions() to return elements
+	 */
+	private class ElementIterator implements Iterator<E>{
+		Iterator<Position<E>> posIterator = new PositionIterator();
+		public boolean hasNext() { return posIterator.hasNext();}
+		public E next(){ return posIterator.next().getElement();}
+		public void remove() {posIterator.remove();}
+	}
+	
+	/** 
+	 * Returns an iterator of the elements stored in the list
+	 */
+	public Iterator<E> iterator() {return new ElementIterator();}
 	
 	//------------------Nested Node class-----------------
 	private static class Node<E> implements Position<E>{
