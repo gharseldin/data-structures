@@ -1,6 +1,6 @@
 package chapter_9;
 
-public interface PriotityQueue<K,V> {
+public interface PriorityQueue<K,V> {
 	int size();
 	boolean isEmpty();
 	Entry<K, V> insert(K key, V value) throws IllegalArgumentException;
