@@ -42,7 +42,7 @@ public class LinkedPositionalList<E> implements PositionalList<E> {
 	/**
 	 * Returns an iterable representation of the list's positions
 	 */
-	public Iterable<Position<E>> positinos(){
+	public Iterable<Position<E>> positions(){
 		return new PositionIterable();
 	}
 	//----------------- nested ElementIterator class -----------
