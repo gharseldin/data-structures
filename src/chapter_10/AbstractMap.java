@@ -58,4 +58,7 @@ public abstract class AbstractMap<K, V> implements Map<K, V> {
 		return new ValueIterable();
 	}
 	
+	public boolean isEmpty(){
+		return size()==0;
+	}	
 }
