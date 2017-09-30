@@ -33,7 +33,7 @@ public class ChainHashMap<K, V> extends AbstractHashMap<K, V> {
 		return answer;
 	}
 	
-	protected V bucketRemvoe(int h, K k) {
+	protected V bucketRemove(int h, K k) {
 		UnsortedTableMap<K, V> bucket = table[h];
 		if(bucket == null)
 			return null;

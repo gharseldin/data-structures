@@ -20,7 +20,11 @@ public abstract class AbstractMap<K, V> implements Map<K, V> {
 		public V getValue(){return value;}
 		
 		protected void setKey(K k){key = k;}
-		protected void setValue(V v){value = v;}
+		protected V setValue(V v){
+			V old  = value;
+			value = v;
+			return old;
+		}
 		
 	}
 	
