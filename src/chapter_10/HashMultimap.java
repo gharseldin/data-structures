@@ -1,5 +1,7 @@
 package chapter_10;
 
+import java.util.ArrayList;
+
 import chapter_7.List;
 
 public class HashMultimap<K,V>{
@@ -44,7 +46,7 @@ public class HashMultimap<K,V>{
 	  void put(K key, V value){
 	    List<V> secondary = map.get(key);
 	    if(secondary == null){
-	      secondary = new ArrayList<>();
+	      secondary = (List<V>)new ArrayList<>();
 	      map.put(key, secondary);    // begin using new list as secondary structure 
 	    }
 	    secondary.add(value);  
