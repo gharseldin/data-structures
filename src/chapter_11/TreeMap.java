@@ -63,6 +63,18 @@ public class TreeMap<K,V> extends AbstractSortedMap<K,V>{
 	protected void remove(Position<Entry<K,V>> p){
 		tree.remove(p);
 	}
+	
+	protected Position<Entry<K,V>> sibling(Position<Entry<K,V>> p){
+		return tree.sibling(p);
+	}
+	
+	protected Position<Entry<K,V>> restructure(Position<Entry<K,V>> p){
+		return tree.restructure(p);
+	}
+	
+	protected void rotate(Position<Entry<K,V>> p){
+		tree.rotate(p);
+	}
 
 
 	
